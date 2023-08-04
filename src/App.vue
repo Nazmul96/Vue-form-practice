@@ -1,30 +1,26 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+    import {ref} from 'vue';
+    const color = ref('None');
+
+    function getStyle(){
+       return {
+           backgroundColor: color.value, 
+       }
+    }
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <section class="mx-auto container">
+      <h1 class="text-2xl mb-10">Vue Form</h1>
+      <p class="pb-5">Your Favorite Color: {{ color }}</p>
+      <p>
+        Your Favorite Color: 
+        <input class="p-5" v-model="color"/>
+        <div class="w-32 h-32 mt-10" :style="getStyle()"></div>
+      </p>
+  </section>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
